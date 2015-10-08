@@ -1,0 +1,1236 @@
+/* @import url('http://example.com/example_style.css'); */
+
+/***********************************************/
+/* CSS @imports must be at the top of the file */
+/* Add them above this section                 */
+/***********************************************/
+
+/****************************************/
+/* HubSpot Style Boilerplate            */
+/****************************************/
+
+/* These includes are optional, but helpful. */
+{% include "hubspot/styles/responsive/modules.css" %}
+{% include "hubspot/styles/patches/recommended.css" %}
+
+
+/*****************************************/
+/* Start your style declarations here    */
+/*****************************************/
+/** 
+ * Box Sizing
+ * 
+ * Applies a natural box layout model to all elements so that width and padding 
+ * are essentially combined, making responsive styles easier to manage.
+ */
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+} 
+
+/* ==========================================================================
+   STRUTO MENU MODULE INTEGRATION (SMM V1) WITH HUBSPOT MENU
+   ==========================================================================
+   ========================================================================== */
+
+/* ==========================================================================
+   Custom Menu Primary
+   ========================================================================== */
+
+/* General menu setting XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
+
+  {% set SMMWrapperHeight           = "60px" %}  /* The same height goes for Menu ul and Header (.smm-header-wrapper) */
+  
+  {% set SMMfontFamily              = "Arial, 'Helvetica Neue', Helvetica, sans-serif;" %} /* Set menu font color for menu bar */
+  {% set SMMfontWeight              = "400" %} /* Set menu font weight for menu bar */
+  {% set SMMmenuBg                  = "rgb(51, 51, 51)" %} /* Set ul background color */
+  
+  /* Desktop parent list color setting */
+  {% set SMMulColor                 = "rgba(66, 107, 112, 0.490196)" %} /* Set ul background color */
+  {% set SMMliColor                 = "rgba(66, 107, 112, 0.490196)" %} /* Set li background Color */
+  {% set SMMliColorHover            = "rgb(67, 106, 110)" %} /* Set li background Color */
+  {% set SMMliColorActive           = "rgb(81, 129, 135)" %} /* Set li background Color */
+  {% set SMMaColor                  = "whitesmoke" %} /* Set link Color */
+  {% set SMMaColorHover             = "#d6d6d6" %} /* Set link Hover Color */
+  {% set SMMfontSizeDesktop         = "14px" %} /* Set menu font weight for menu bar */
+  
+   /* Desktop child list color setting */
+  {% set SMMulColorChild            = "rgb(51, 85, 89)" %} /* Set ul background color */
+  {% set SMMliColorChild            = "rgb(51, 85, 89)" %} /* Set li background Color */
+  {% set SMMliColorHoverChild       = "rgb(221, 78, 12)" %} /* Set li background Color */
+  {% set SMMaColorChild             = "#BFBFBF" %} /* Set link Color */
+  {% set SMMaColorHoverChild        = "#222" %} /* Set link Hover Color */
+  {% set SMMfontSizeDesktopChild    = "13px" %} /* Set menu font weight for menu bar */
+  
+  /* Mobile color setting */
+  {% set SMMmenuColorMobile         = "rgb(67, 106, 110)" %} /* Set Mobile Menu Background Color */
+  {% set SMMaColorMobile            = "#ffffff" %} /* Set Link Color */
+  {% set SMMaColorHoverMobile       = "#ffffff" %} /* Set Link Hover Color */
+  {% set SMMfontSizeMobile          = "14px" %} /* Set menu font weight for menu bar */
+  {% set SMMHeightMobile            = "50px" %}
+  {% set SMMTextAlignMobile         = "center" %}
+  {% set SMMTriggerColor            = "#dd4e0c" %}
+  {% set SMMTriggerColorHover       = "#b33d07" %}
+ 
+
+
+/* Other menu setting XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
+
+/* Animation AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
+
+/* Menu AAAAAAAAAAAAAAAAAAAAA */
+
+.widget-span.smm-master-header {
+    width: 100%;
+    -webkit-animation: mymove 1s; /* Chrome, Safari, Opera */
+    animation: mymove 1s;
+} 
+/* Chrome, Safari, Opera */
+
+.widget-span.smm-master-header {-webkit-animation-timing-function: linear;}
+
+/* Standard syntax */
+
+.widget-span.smm-master-header  {animation-timing-function: linear;}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    from {top: -60px;}
+    to {top: 0;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+    from {top: -60px;}
+    to {top: 0;}
+}
+
+/*.nav-up { top: -60px; }*/
+
+
+
+
+/*Menu Scroll Display transitions*/
+/* UPDATE EXISTING STYLE */
+.nav-up{
+    transform: translateY(-80px);
+    -ms-transform: translateY(-80px);
+    -o-transform: translateY(-80px);
+    -webkit-transform: translateY(-80px);
+
+    -o-transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+/* ADD NEW STYLE */
+.nav-down{
+    transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    -o-transform: translateY(0px);
+
+    -o-transition-duration: 200ms;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+body.mobile-open .smm-master-header.nav-up {
+     transform: translateY(0px) !important;
+    -ms-transform: translateY(0px) !important;
+    -webkit-transform: translateY(0px) !important;
+    -o-transform: translateY(0px) !important;
+
+    -o-transition-duration: 200ms !important;
+    -webkit-transition-duration: 0.2s !important;
+    -moz-transition-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+}
+
+
+
+/* Mobile Menu Toggle Animation */
+
+@-webkit-keyframes topline {
+  50%  {-webkit-transform: translateY(4.8px); transform:translateY(4.8px); }
+  100% { margin-top:0; -webkit-transform: rotate(45deg); transform:rotate(45deg);}
+}
+@-moz-keyframes topline {
+  50%  {-webkit-transform: translateY(4.8px); transform:translateY(4.8px); }
+  100% { margin-top:0; -webkit-transform: rotate(45deg); transform:rotate(45deg);}
+}
+@-o-keyframes topline {
+  50%  {-webkit-transform: translateY(4.8px); transform:translateY(4.8px); }
+  100% { margin-top:0; -webkit-transform: rotate(45deg); transform:rotate(45deg);}
+}
+@keyframes topline {
+  50%  {-webkit-transform: translateY(4.8px); transform:translateY(4.8px); }
+  100% { margin-top:0; -webkit-transform: rotate(45deg); transform:rotate(45deg);}
+}
+
+@-webkit-keyframes bottomline {
+  50%  {-webkit-transform: translateY(-4.8px); transform:translateY(-4.8px); }
+  100% { margin-top:0; -webkit-transform: rotate(-45deg); transform:rotate(-45deg);}
+}
+@-moz-keyframes bottomline {
+  50%  {-webkit-transform: translateY(-4.8px); transform:translateY(-4.8px); }
+  100% { margin-top:0; -webkit-transform: rotate(-45deg); transform:rotate(-45deg);}
+}
+@-o-keyframes bottomline {
+  50%  {-webkit-transform: translateY(-4.8px); transform:translateY(-4.8px); }
+  100% { margin-top:0; -webkit-transform: rotate(-45deg); transform:rotate(-45deg);}
+}
+@keyframes bottomline {
+  50%  {-webkit-transform: translateY(-4.8px); transform:translateY(-4.8px); }
+  100% { margin-top:0; -webkit-transform: rotate(-45deg); transform:rotate(-45deg);}
+}
+
+
+.mobile-open a.mobile-trigger i:before {
+    -webkit-animation:topline 0.3s ease-in-out;
+    -moz-animation:topline 0.3s ease-in-out;
+    animation:topline 0.3s ease-in-out;
+    animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards; 
+    -webkit-animation-fill-mode: forwards;
+}
+.mobile-open a.mobile-trigger i:after {
+     -webkit-animation:bottomline 0.3s ease-in-out;
+    -moz-animation:bottomline 0.3s ease-in-out;
+    animation:bottomline 0.3s ease-in-out;
+    animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards; 
+    -webkit-animation-fill-mode: forwards;
+}
+
+
+
+.header-container-wrapper .widget-span {
+    min-height: initial;
+}
+.widget-span.smm-master-header {
+    display: none;
+    position: fixed;
+    width:100%;
+    z-index:999999;
+}
+
+/* Hide transported menu */
+#smm-transport .header-container-wrapper {
+    display: none !important;
+}
+.smm-header-wrapper .widget-span {
+    width: initial !important;
+    margin-left: initial !important;
+    
+}
+.smm-header-wrapper {
+    background-color: {{ SMMmenuBg }};
+    font-family: {{ SMMfontFamily }};
+    font-weight: {{ SMMfontWeight }};
+    height: {{ SMMWrapperHeight }};
+    border-bottom: 1px solid rgb(67, 106, 110);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.380392) 0px 1px 3px 0px;
+    -moz-box-shadow:    rgba(0, 0, 0, 0.380392) 0px 1px 3px 0px;
+     box-shadow: rgba(0, 0, 0, 0.380392) 0px 1px 3px 0px;
+}
+.smm-footer-script {
+    display: none !important;
+}
+.st-struto-logo img {
+    padding: 0 10px;
+    height: calc({{ SMMWrapperHeight }} - 20px);
+    width: initial !important;
+}
+.smm-menu-wrapper {
+    margin-left: 0 !important;
+    
+}
+.smm-header-wrapper .smm-left {
+    float: left !important;
+    width: initial;
+}
+.smm-right-corner {
+    float: left;
+}
+.smm-desktop-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul,
+.smm-header-wrapper .smm-right {
+    float: right !important;
+    width: initial;
+}
+.hs-menu-wrapper.hs-menu-flow-horizontal>ul:last-child {
+    
+}
+.st-struto-logo .hs_cos_wrapper_type_linked_image {
+    display: table-cell;
+    vertical-align: middle;
+    height: {{ SMMWrapperHeight }}; 
+}
+.st-struto-logo {
+    width: calc( 100% + 20px);
+}
+
+ul.hs-menu-children-wrapper.smm-bucket ul {
+    display: none;
+}
+.smm-header-wrapper .smm-desktop-menu {
+    float: left;
+}
+
+.smm-header-wrapper a.cta_button {
+    height:  {{ SMMWrapperHeight }} !important; /* {{ SMMWrapperHeight }} */
+}
+
+.mobile-extra-right-button {
+    display: none !important;
+}
+
+/* Reset display */
+@media (min-width: 768px) {
+    .smm-header-wrapper .smm-right-corner,
+    .smm-header-wrapper .smm-desktop-menu {
+        display: block;
+    }
+   
+    .smm-header-wrapper .smm-mobile-menu {
+        display: none;
+    }
+    
+}
+
+/* Show Mobile and hide desktop menu */
+@media (max-width: 767px) {
+    .smm-header-wrapper .smm-right-corner,
+    .smm-header-wrapper .smm-desktop-menu {
+        display: none;
+    }
+   
+    .smm-header-wrapper .smm-mobile-menu {
+        display: block;
+    }
+
+     .mobile-extra-right-button {
+        display: block !important;
+        right: 115px;
+        top: 4px;
+        position: relative;
+     }
+    .st-struto-logo .hs_cos_wrapper_type_linked_image,
+    .smm-header-wrapper {
+        height: {{ SMMHeightMobile }} ;   
+    }
+    
+    .st-struto-logo img {
+       height: calc({{ SMMHeightMobile }} - 20px) ;
+    }
+    
+    .smm-mobile-menu .hs-menu-wrapper ul:first-child { 
+        
+        height: auto;
+        overflow-x: hidden !important;
+        /*overflow: -moz-scrollbars-none;*/
+        direction: rtl;
+    }
+    
+    /* .smm-mobile-menu .hs-menu-wrapper ul::-webkit-scrollbar { display: none !important; } */
+    
+    .smm-mobile-menu .hs-menu-wrapper ul::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .smm-mobile-menu .hs-menu-wrapper ul::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+        border-radius: 10px;
+        background-color: #1A5A61;
+    }
+    
+    .smm-mobile-menu .hs-menu-wrapper ul::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    }
+    
+    @-moz-document url-prefix(http://),url-prefix(https://) {
+        scrollbar {
+           -moz-appearance: none !important;
+           background: rgb(0,255,0) !important;
+        }
+        thumb,scrollbarbutton {
+           -moz-appearance: none !important;
+           background-color: rgb(0,0,255) !important;
+        }
+        
+        thumb:hover,scrollbarbutton:hover {
+           -moz-appearance: none !important;
+           background-color: rgb(255,0,0) !important;
+        }
+        
+        scrollbarbutton {
+           display: none !important;
+        }
+        
+        scrollbar[orient="vertical"] {
+          min-width: 15px !important;
+        }
+    }
+    
+}
+
+@media (max-width: 479px) { 
+    .mobile-extra-right-button {
+        display: none !important;
+    }
+}
+
+/* ==========================================================================
+   Desktop Menu
+   ========================================================================== */
+   
+/* Parent List XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
+
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul{ 
+  background-color:{{ SMMulColor }};
+}
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul > li{
+  background:{{ SMMliColor   }};
+  border-left: 1px solid rgb(67, 106, 110);
+}
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul > li.active {
+    /* background: {{ SMMliColorHover }} !important; */
+}
+
+/********************************************************************************************************/
+
+/*Menu Item Hover Colour Transition*/
+/* UPDATE EXISTING STYLE */
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul > li:hover{
+    background:{{ SMMliColorHover }};
+    -webkit-transition-duration: 200ms;
+    -moz-transition-duration: 200ms;
+    -o-transition-duration: 200ms;
+    transition-duration: 200ms;
+}
+
+/********************************************************************************************************/
+
+/*
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul > li:hover{
+  background:{{ SMMliColorHover }};
+}*/
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul > li > a:link,
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul > li > a{
+  color:{{ SMMaColor }};
+  font-size: {{ SMMfontSizeDesktop }};
+  display: table-cell;
+  padding: 0 20px;
+  height: {{ SMMWrapperHeight }};
+  vertical-align: middle;
+}
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul > li.active > a {
+    background: {{ SMMliColorActive }};
+    color: {{ SMMaColorHover }};
+}
+
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul > li > a:hover{
+  color: {{ SMMaColorHover }};
+}
+
+.smm-header-wrapper .custom-menu-primary.smm-desktop-menu li.hs-item-has-children:hover > a {
+    color: {{ SMMaColorHover }};
+}
+
+.smm-desktop-menu .hs-menu-flow-horizontal {
+    font-size: 0;
+}
+
+/* Child List XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
+
+.smm-desktop-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li.hs-item-has-children:last-child ul.hs-menu-children-wrapper {
+    left: initial;
+    margin-left:0;
+    right:0;
+}
+
+
+
+/*Child Item Display transition*/
+/* ADD NEW STYLE */
+.hs-menu-wrapper.hs-menu-flow-horizontal > ul li.hs-item-has-children:hover > ul.hs-menu-children-wrapper {
+    opacity: 1;
+    transition-duration: 200ms;
+    -o-transition-duration: 200ms;
+    -webkit-transition-duration: 200ms;
+    -moz-transition-duration: 200ms;
+    visibility: visible;
+}
+
+/********************************************************************************************************/
+
+
+
+.smm-desktop-menu .hs-menu-wrapper.hs-menu-flow-horizontal>ul li.hs-item-has-children ul.hs-menu-children-wrapper {
+    left: 50%;
+    margin-left: -90px;
+    width: 180px;
+    text-align: center;
+}
+
+
+/*Child Hover Colour Transition*/
+/*UPDATE EXISTING STYLE*/
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul ul li:hover{
+    background:{{ SMMliColorHoverChild }};
+    -o-transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+/*UPDATE EXISTING STYLE*/
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul ul li a:link,
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul ul li a{
+  color:{{ SMMaColorChild }};
+  font-size: {{ SMMfontSizeDesktopChild }};
+  -o-transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+/********************************************************************************************************/
+
+
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul ul li{
+  background:{{ SMMliColorChild }};
+  border-right: 1px solid rgba(255, 255, 255, 0.290196);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.290196);
+  border-left: 1px solid rgba(255, 255, 255, 0.290196);
+}
+/*
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul ul li:hover{
+  background:{{ SMMliColorHoverChild }};
+}/*
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul ul li a:link,
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul ul li a{
+  color:{{ SMMaColorChild }};
+  font-size: {{ SMMfontSizeDesktopChild }};
+}
+*/
+
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul ul li a:hover{
+  color:{{ SMMaColorHoverChild }};
+}
+
+
+.custom-menu-primary.smm-desktop-menu .hs-menu-wrapper > ul ul ul {
+    margin-left: 0 !important;
+}
+
+.custom-menu-primary.smm-desktop-menu ul li.hs-item-has-children span.fa {
+    position: absolute;
+    font-size: 20px;
+    color: whitesmoke;
+    right: 15px;
+    top: 20px;
+}
+
+/* Archie's fix for children menu */
+.custom-menu-primary.smm-desktop-menu ul li.hs-item-has-children.hs-menu-depth-2 span.fa {
+    color: #fff;
+    top: 10px;
+}
+
+.hs-menu-wrapper.hs-menu-flow-horizontal ul ul ul {
+    padding: 0 !important;
+}
+
+/* End of fixes */
+
+.custom-menu-primary.smm-desktop-menu ul li.hs-item-has-children a {
+    padding-right: 40px !important;
+}
+
+/* Override max width on menu links */
+.custom-menu-primary .hs-menu-wrapper > ul li a, 
+.hs-menu-wrapper.hs-menu-flow-horizontal > ul li.hs-item-has-children ul.hs-menu-children-wrapper li a {
+  overflow: visible !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
+/* Fix menu disappearing on desktop after toggling mobile menu */
+@media screen and (min-width:768px) {
+    .custom-menu-primary .hs-menu-wrapper { 
+        display:block !important;
+    }
+}
+
+
+
+
+/* ==========================================================================
+   Mobile Menu - Hubspot Standard Toggle Menu
+   ========================================================================== */
+
+
+/**
+ * Special Note
+ *
+ * When the menu is open, a class of .mobile-open is applied to the body. You can 
+ * use this for custom styling on any element when the menu is in the open position.                     
+ */
+
+@media (min-width: 768px){
+
+  a.mobile-trigger, a.child-trigger {
+      display: none !important; /* Hide button on Desktop */
+  }
+  
+      /* Override */
+    .hs-menu-wrapper.hs-menu-flow-horizontal ul {
+        display: initial !important;
+    }
+      
+}
+
+@media (max-width: 767px){
+
+
+  /* Menu Reset - Remove styling from desktop version of custom-menu-primary */
+  /* Place any additional CSS you want removed from the mobile menu in this reset */
+  .custom-menu-primary, .custom-menu-primary *{
+    display: block;
+    float: none;
+    position: static;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    padding: 0px;
+    margin: 0px;
+    background-image: none;
+    background-color: transparent;
+    border: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow:    none;
+    box-shadow:         none; 
+    max-width: none;
+    width: 100%;
+    height: auto;
+    line-height: 1;  
+    font-weight: normal;
+    text-decoration: none;
+    text-indent: 0px;
+    text-align: left;
+    color: {{SMMaColorMobile}};
+    }
+
+
+  /* Toggle Button
+     ========================================================================== */
+
+  a.mobile-trigger {
+      border-left: 1px solid white;
+      display: table-cell !important; /* Hide button on Desktop */
+      cursor: pointer; /* Mouse pointer type on hover */
+      position: absolute; /*******************************************/
+      top: 0px;          /* Position Button at top right of screen  */
+      right: 0;        /*******************************************/
+      width: auto; /* Button width */
+      height:  {{ SMMHeightMobile }}; /* Button height */      
+      padding: 18px 10px 0;
+      vertical-align: middle;
+      background: {{ SMMTriggerColor }}; /* Background color */
+      z-index: 99999999999; /* Z-index to keep button on top of other layers */
+      -webkit-transition: background-color 0.2s linear; /* Button color transition effect */
+      font-size: 16px;
+      font-weight: normal;
+      text-align: left;
+      text-transform: uppercase;
+      -webkit-border-bottom-right-radius: 0px;
+      -webkit-border-bottom-left-radius: 0px;
+      -moz-border-radius-bottomright: 0px;
+      -moz-border-radius-bottomleft: 0px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      -webkit-transition:color .2s ease-in; 
+      -moz-transition:color .2s ease-in;
+      transition:color .2s ease-in;
+  }
+
+  a.mobile-trigger:hover {
+      text-decoration: none; /* Removes link text underline on button */
+      color: {{ SMMaColorHoverMobile }};
+  }
+
+  a.mobile-trigger span{
+      display: inline;
+  }
+
+  a.mobile-trigger span:before{
+      position: absolute;
+      content: 'Menu'; /* Change the text on the closed toggle button */
+  }
+
+  a.mobile-trigger span:after{
+      position: relative;
+      right: 2px;
+      content: 'Close'; /* Change the text on the open toggle button */
+      background-color: #DD4E0C /*{{ SMMTriggerColorHover }} */;
+      opacity: 0;
+      /*
+      transition: opacity .4s ease-in-out;
+      -moz-transition: opacity .4s ease-in-out;
+      -webkit-transition: opacity .4s ease-in-out; 
+      */
+  }
+
+  /* Change button when menu is open */
+  .mobile-open a.mobile-trigger{
+      -webkit-transition:background-color 0.2s linear; /* Button color transition effect */
+      -moz-transition:background-color 0.2s linear; /* Button color transition effect */
+      transition:background-color 0.2s linear; /* Button color transition effect */
+      /*  background: transparent; Changes button background to be slightly darker than open menu color */  
+  }
+
+  .mobile-open a.mobile-trigger span:after{
+     opacity: 1; 
+  }
+
+
+  /* Toggle Button Icon & Animations
+     ========================================================================== */
+
+  a.mobile-trigger i {
+      display: inline;
+      position: relative;
+      top: -5px;
+      margin-left: 5px;
+      -webkit-transition-duration: 0s;
+      -webkit-transition-delay: .2s;
+      -moz-transition-duration: 0s;
+      -moz-transition-delay: .2s;
+      transition-duration: 0s;
+      transition-delay: .2s;
+  }
+  a.mobile-trigger  i:before, a.mobile-trigger i:after {
+      position: absolute;
+      content: '';
+  }
+  a.mobile-trigger  i, a.mobile-trigger  i:before, a.mobile-trigger  i:after {
+      width: 15px; /* Icon line width */
+      height: 2px; /* Icon line height */
+      background-color: {{ SMMaColorMobile }}; /* Icon color */
+      display: inline-block;
+  }
+  a.mobile-trigger  i:before {
+      margin-top: -6px; /* Position top line */
+      -webkit-transition-property: margin, -webkit-transform;
+      -webkit-transition-duration: .2s;
+      -webkit-transition-delay: .2s, 0;
+  }
+  a.mobile-trigger  i:after {
+      margin-top: 6px; /* Position bottom line */
+      -webkit-transition-property: margin, -webkit-transform;
+      -webkit-transition-duration: .2s;
+      -webkit-transition-delay: .2s, 0;
+  }
+  .mobile-open a.mobile-trigger i {
+      background-color: rgba(0,0,0,0.0);
+      -webkit-transition-delay: .2s;
+      -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
+      -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
+      box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
+  }
+  /*
+  .mobile-open a.mobile-trigger i:before {
+      margin-top: 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      -webkit-transition-delay: 0, .2s;
+      -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
+      -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
+      box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
+  }
+  .mobile-open a.mobile-trigger i:after {
+      margin-top: 0;
+      -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      -webkit-transition-delay: 0, .2s;
+      -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
+      -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
+      box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
+  }
+  */
+
+  /* Child Toggle Button
+     ========================================================================== */
+
+  a.child-trigger {
+      display: block !important; /* Hide button on Desktop */
+      cursor: pointer; /* Mouse pointer type on hover */
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 55px !important; /* Button width */
+      min-width: 55px !important;
+      height: 45px !important; /* Button height */  
+      padding: 0 !important;
+      border-left: 1px dotted rgba(255, 255, 255, .20);
+  }
+  a.child-trigger:hover {
+      text-decoration: none;
+  }
+
+
+  /* Child Toggle Button Icon & Animations
+     ========================================================================== */
+
+  a.child-trigger span {
+      position: relative;
+      top: 50%; /* Centers icon inside button */
+      margin: 0 auto !important;
+      -webkit-transition-duration: .2s;
+      -moz-transition-duration: .2s;
+      transition-duration: .2s;
+  }
+  a.child-trigger span:after {
+      position: absolute;
+      content: '';
+  }
+  a.child-trigger span, a.child-trigger span:after {
+      width: 10px; /* Icon line width */
+      height: 1px; /* Icon line height */
+      background-color: {{ SMMaColorMobile }}; /* Icon color */
+      display: block;
+  }
+  a.child-trigger span:after {
+      -webkit-transform: rotate(-90deg);
+       -ms-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+       -webkit-transition-duration: .2s;
+       -moz-transition-duration: .2s;
+      transition-duration: .2s;
+  }
+  a.child-trigger.child-open span:after {
+      -webkit-transform: rotate(-180deg);
+       -ms-transform: rotate(-180deg);
+      transform: rotate(-180deg);
+       -webkit-transition-duration: .2s;
+       -moz-transition-duration: .2s;
+      transition-duration: .2s;
+  }
+  a.child-trigger.child-open span {
+      -webkit-transform: rotate(180deg);
+       -ms-transform: rotate(180deg);
+      transform: rotate(180deg);
+       -webkit-transition-duration: .2s;
+       -moz-transition-duration: .2s;
+      transition-duration: .2s;
+  }
+
+    
+  /* Menu Styles on Mobile Devices
+     ========================================================================== */  
+
+
+  /* Hide menu on mobile */
+  .custom-menu-primary.js-enabled .hs-menu-flow-horizontal,
+  .custom-menu-primary.js-enabled .hs-menu-children-wrapper{
+      display: none;
+  }  
+
+  /* Make child lists appear below parent items */
+  .custom-menu-primary ul.hs-menu-children-wrapper {
+      visibility: visible !important;
+      opacity: 1 !important;
+      position: static !important;
+      display: none;
+  }
+
+  /* Mobile Menu Styles */
+  .custom-menu-primary.js-enabled .hs-menu-flow-horizontal{
+      position: absolute; /**************************************************************/
+      top: 50px;             /* Positions the menu to drop from the very top of the screen */
+      left: 0px;          /**************************************************************/                                              
+      width: 100%;   
+     
+  }
+  .custom-menu-primary .hs-menu-flow-horizontal{
+      padding: 0.01% 0 0 0; /* Padding to add room for close button */
+      /* Menu background color set off global mobile-SMMmenuColor variable */
+      width: 100%; /* Full screen width */
+      z-index: 8888;
+      background-color: rgba(0, 0, 0, 0.65);
+  }
+
+   /* Level 1 Menu List Styles */
+  .custom-menu-primary .hs-menu-flow-horizontal > ul > li{
+      position: relative;
+      text-align: {{ SMMTextAlignMobile }};
+   }
+   .custom-menu-primary .hs-menu-flow-horizontal ul li:last-child {
+       background-color: transparent;
+       border-bottom: 0 !important;
+   }
+  .custom-menu-primary .hs-menu-flow-horizontal > ul > li a{
+      font-size: 22px; /* Font size of top level list items */
+      line-height: 45px;
+      overflow: visible;
+      display: block;
+      text-align: {{ SMMTextAlignMobile }};
+  }
+
+  /* Level 1 and Higher Menu List Styles */
+  .custom-menu-primary .hs-menu-flow-horizontal ul li{
+      border-bottom: 1px solid rgba(255, 255, 255, 0.470588); /* Adds transparent dark highlights to top of top level list items */
+      background-color: {{ SMMmenuColorMobile }};
+  }
+  .custom-menu-primary .hs-menu-flow-horizontal ul li a{
+      padding: 0 10px;
+      font-size: {{ SMMfontSizeMobile }};
+  }
+  .custom-menu-primary .hs-menu-flow-horizontal ul li a:hover{
+      color: {{ SMMaColorHoverMobile }}; /* link hover color set by global mobile-SMMaColorHover variable */
+  }
+
+  /* Level 2 and Higher Menu List Styles */
+  .custom-menu-primary .hs-menu-flow-horizontal > ul ul li{
+     background-color: rgba(255, 255, 255, .08);
+  }
+  .custom-menu-primary .hs-menu-flow-horizontal > ul ul li a{
+      text-indent: 10px; /* Indent Child lists */
+      font-size: {{ SMMfontSizeMobile }}; /* Font size of child lists */
+  }
+
+  /* Level 3 and Higher Menu List Styles */
+  .custom-menu-primary .hs-menu-flow-horizontal > ul ul ul li a{
+      text-indent: 30px; /* Indent Child lists */
+  }
+  .custom-menu-primary .hs-menu-flow-horizontal > ul ul ul ul li a{
+      text-indent: 50px; /* Indent Child lists */
+  }
+}
+
+@media screen and (max-width: 979px) {
+   
+    /* Show Mobile Menu Group */
+    
+    .desktop-menu-group{
+        display: initial !important; 
+    } 
+    
+}
+
+
+/************ Team Section from About us page *****************/
+.button.about-employee-pagination-next,
+.button.about-employee-pagination-back {
+  width: 46%;
+  height: 48px;
+  margin-top: 0px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 20px;
+  padding-top: 13px;
+  background-color: rgb(221, 78, 12);
+  color: white;
+  font-size: 16px;
+  display: inline-block;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+  transition: all 200ms ease;
+  border-radius: 4px;
+}
+.button.about-employee-pagination-next:hover,
+.button.about-employee-pagination-back:hover {
+  background-color: rgb(179, 61, 7);
+  color: white;
+}
+.about-quote-profile-image {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+  margin-top: 10px;
+  margin-left: 10px;
+  float: left;
+  border: 1px solid #c4c4c4;
+  border-radius: 200px;
+  background-color: #e3e3e3;
+  background-position: 50% 50%;
+  background-size: contain;
+}
+.about-quote-name-description {
+  display: inline-block;
+  margin-left: 10px;
+}
+.about-quote-name {
+  display: inline-block;
+  margin-top: 11px;
+  margin-left: 10px;
+  float: left;
+  color: gray;
+  line-height: 18px;
+}
+
+.st-team-wrap {
+    width: 10%;
+    display: inline-block;
+}
+
+.about-team-image-div {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 0px;
+    /*
+    border-top: 1px solid rgb(179, 61, 7);
+    border-right: 1px solid rgb(179, 61, 7);
+    */
+    background-color: rgba(221,78,12,0.9);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    text-decoration: none;
+}
+
+.about-team-image-div{
+    background-size: cover;
+}
+
+.about-team-image-div.extra {
+  background-color: rgb(179, 61, 7);
+  background-image: none;
+  background-position: 0% 0%;
+  background-size: auto;
+  background-repeat: repeat;
+  background-attachment: scroll;
+}
+.st-about-team-hover,
+.about-team-hover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-top: 25px;
+  box-shadow: none;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  color: transparent;
+  font-size: 70px;
+  text-align: center;
+}
+.st-about-team-hover:hover,
+.about-team-hover:hover {
+  background-color: rgba(221, 78, 12, 0.901961);
+  color: white;
+  font-weight: 400;
+  text-decoration: none;
+  text-shadow: rgba(0, 0, 0, 0.4) 1px 1px 3px;
+}
+.about-team-hover.extra {
+  display: block;
+}
+.about-team-hover.extra:hover {
+  color: transparent;
+  text-shadow: none;
+}
+.st-about-employee-pop-up {
+   left: 0px;
+   right: 0px; 
+}
+.st-about-employee-pop-up,
+.about-employee-pop-up {
+  position: fixed;
+  z-index: 3000;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.901961);
+  z-index: 999999;
+}
+
+@media (max-height: 480px) {
+    .st-about-employee-pop-up {
+       overflow: auto;
+       overflow-x: hidden;
+       direction: rtl;
+    }
+    
+    .st-about-employee-pop-up::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .st-about-employee-pop-up::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.5); 
+        border-radius: 10px;
+    }
+    
+    .st-about-employee-pop-up::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: rgba(221, 78, 12, 0.58);
+    }
+
+}
+
+
+.about-employee-image-div {
+    display: block;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 200px;
+
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 3px -6px;
+  
+     width: 150px;
+    height: 150px;
+    border: 3px solid white;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    background-position: 50% 50%;
+    background-size: auto;
+    
+    min-width: 75px;
+   
+    outline-offset: -1px!important;
+    box-shadow: inset 0 0 0 4px rgba(0,0,0,.1),inset 0 0 0 4px rgba(255,255,255,.2),inset 0 0 0 1px rgba(255,255,255,.3);
+}
+.about-employee-name {
+  margin-bottom: 10px;
+  font-family:'Stawix amsipro', sans-serif;
+  color: white;
+  font-size: 32px;
+  line-height: 30px;
+  text-align: center;
+}
+.about-employee-p {
+  width: 400px;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-left: auto;
+  color: white;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+.about-employee-position {
+  margin-bottom: 10px;
+  color: rgb(221, 78, 12);
+  font-size: 28px;
+  text-align: center;
+}
+.about-text-block {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+.about-employee-pagination-div-wrap {
+  display: block;
+  width: 260px;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.about-employee-overlay-exit {
+  width: 60px;
+  height: 60px;
+  float: right;
+  background-color: white;
+  color: rgb(179, 61, 7);
+  text-decoration: none;
+}
+.about-employee-overlay-exit-icon {
+  height: 100%;
+  padding-top: 14px;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  color: white;
+  font-size: 23px;
+  text-align: center;
+  background: #dd4e0c;
+}
+.about-employee-overlay-exit-icon:hover {
+  height: 100%;
+  background-color: rgba(221,78,12,0.9);
+  color: white;
+}
+
+.join {
+    background-image: url('http://cdn2.hubspot.net/hubfs/165931/_StrutoV2/our-team/struto-team-join.jpg');
+}
+
+@media (max-width: 991px) {
+  .st-team-wrap {
+    width: 20%;
+  }
+  .st-about-team-hover,
+  .about-team-hover {
+    width: 100%;
+  }
+  .st-about-employee-pop-up,
+  .about-employee-pop-up {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-quote-profile-image {
+    margin-left: 0px;
+  }
+ .st-team-wrap {
+    display: inline-block;
+    width: 20%;
+  }
+  .st-about-employee-pop-up,
+  .about-employee-pop-up {
+    display: none;
+  }
+  .about-employee-image-div {
+    margin-top: 30px;
+  }
+  .about-employee-name {
+    margin-bottom: 0px;
+    font-size: 28px;
+  }
+}
+
+
+@media (max-width: 479px) {
+ .about-quote-profile-image {
+    margin-left: 0px;
+  }
+  .st-team-wrap {
+    width: 50%;
+  }
+  .st-about-team-hover,
+  .about-team-hover {
+    width: 100%;
+  }
+  .about-employee-image-div {
+  
+    margin-top: 30px;
+  }
+  .about-employee-name {
+    margin-bottom: 0px;
+    font-size: 28px;
+  }
+  .about-employee-p {
+    width: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
